@@ -121,7 +121,8 @@ public class MainActivity extends AppCompatActivity {
     private List<Photo> getListOfPhotosFromFileList(List<File> fileList){
         List<Photo> photoList = new ArrayList<>();
         for(File file: fileList){
-            String timeStamp = file.getName().substring(5);
+            Date lastModDate = new Date(file.lastModified());
+            String timeStamp = SimpleDateFormat.getDateTimeInstance().format(lastModDate);
             Uri uri = FileProvider.getUriForFile(this,"com.example.rent.cameraapp.fileprovider",file);
             photoList.add(new Photo(timeStamp,uri));
         }
