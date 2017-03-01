@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,10 +35,13 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     }
 
     @Override
-    public void onBindViewHolder(PhotoViewHolder holder, int position) {
+    public void onBindViewHolder( PhotoViewHolder holder, int position) {
 
-        Photo photo = list.get(position);
-        holder.imageView.setImageBitmap(photo.getBitmap());
+         Photo photo = list.get(position);
+
+        Picasso.with(context).load(photo.getUri()).fit().centerInside().into(holder.imageView);
+
+        //holder.imageView.setImageBitmap(photo.getBitmap());
         holder.timeStampTextView.setText(photo.getTimeStamp());
     }
 

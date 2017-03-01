@@ -1,6 +1,7 @@
 package com.example.rent.cameraapp;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 
 /**
  * Created by RENT on 2017-02-28.
@@ -9,11 +10,11 @@ import android.graphics.Bitmap;
 public class Photo {
 
     String timeStamp;
-    Bitmap bitmap;
+    private Uri uri;
 
-    public Photo(String timeStamp, Bitmap bitmap) {
+    public Photo(String timeStamp, Uri uri) {
         this.timeStamp = timeStamp;
-        this.bitmap = bitmap;
+        this.uri = uri;
     }
 
     public String getTimeStamp() {
@@ -24,11 +25,11 @@ public class Photo {
         this.timeStamp = timeStamp;
     }
 
-    public Bitmap getBitmap() {
-        return bitmap;
+    public Uri getUri() {
+        return uri;
     }
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
+    public void setUri(Uri uri) {
+        this.uri = uri;
     }
 }
